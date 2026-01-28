@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "科学期刊图片助手",
+  "description": "在Cell、Nature、Science、Wiley等期刊网站上点击图片链接时在侧边栏显示高清图片",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://media.springernature.com/*",
+    "https://*.nature.com/*",
+    "https://*.cell.com/*",
+    "https://*.science.org/*",
+    "https://*.onlinelibrary.wiley.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.nature.com/*", 
+        "https://*.cell.com/*",
+        "https://*.science.org/*",
+        "https://*.sciencedirect.com/*",
+        "https://*.onlinelibrary.wiley.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "科学期刊图片助手"
+  }
+}
